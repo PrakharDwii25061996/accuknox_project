@@ -1,0 +1,16 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    environment:
+      - DJANGO_SETTINGS_MODULE=accuknox_assignment.settings
+      - SECRET_KEY=django-insecure-l#qvg%w8ebm%kjvlhux#if6@dy=f9%v+wxxe=oigso&gmxiy^&
+    ports:
+      - "8000:8000"
